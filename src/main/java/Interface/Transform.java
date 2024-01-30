@@ -14,9 +14,8 @@ public class Transform implements Rotate, Translate{
      * @return rotated collection
      * */
     public Collection<Point2d> rotate(Collection<Point2d> coords, Double angle) {
-        Iterator<Point2d> it = coords.iterator();
-        while (it.hasNext()){
-            it.next().rotate(angle);
+        for (Point2d coord : coords) {
+            coord.rotate(angle);
         }
         return coords;
     }
