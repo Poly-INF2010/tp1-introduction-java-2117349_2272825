@@ -19,14 +19,17 @@ public class Rectangle extends BaseShape {
      * @param dimensions 2D point containing the width and height of the rectangle
      */
     public Rectangle(Point2d dimensions) {
+        this(dimensions.X(), dimensions.Y());
 
     }
 
     /**
      * Create a rectangle from a given collection of Points
+     * Private constructor for clone method; assumes coords form a filled rectangle
      * @param coords The collection of 2D points
      */
     private Rectangle(Collection<Point2d> coords) {
+        super(coords);
 
     }
 
@@ -35,6 +38,6 @@ public class Rectangle extends BaseShape {
      */
     @Override
     public Rectangle clone() {
-        return null;
+        return new Rectangle(getCoords());
     }
 }
