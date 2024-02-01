@@ -7,9 +7,8 @@ import java.util.Collection;
 public class Ellipse extends BaseShape {
     /** TODO
      * Create a filled Ellipse that is centered on (0, 0)
-     * The formula used is ((x^2)/a^2) + ((y^2)/b^2) = 1 where a is the halfWidth and b is the halfHeight.
-     * Y is isolated to calculate coordinates.
-     * Makes multiple ellipses of the same width with different smaller heights to fill it
+     * The formula used is ((x^2)/a^2) + ((y^2)/b^2) <= 1 where a is the halfWidth and b is the halfHeight.
+     *
      * @param widthDiameter Width of the Ellipse
      * @param heightDiameter Height of the Ellipse
      */
@@ -18,11 +17,12 @@ public class Ellipse extends BaseShape {
         Double halfWidth = widthDiameter/2.0;
         Double halfHeight = heightDiameter/2.0;
 
-        for (Double maxCoordY = halfHeight; maxCoordY > 0; maxCoordY -= 0.5){
-            for(Double coordX = halfWidth; coordX > -halfWidth; coordX -= 0.5 ){
-                Double coordY = maxCoordY*maxCoordY*(1 - coordX*coordX/(halfWidth*halfWidth));
-                add(new Point2d(coordX, coordY));
-                add(new Point2d(coordX, -coordY));
+        for (Double coordY = -halfHeight; coordY < halfHeight; coordY += 0.5){
+            for(Double coordX = -halfWidth; coordX < halfWidth; coordX += 0.5 ){
+
+                if((((coordX*coordX)/(halfWidth*halfWidth)) + ((coordY*coordY)/(halfHeight*halfHeight))) <= 1){
+                    add(new Point2d(coordX,coordY));
+                }
             }
         }
 

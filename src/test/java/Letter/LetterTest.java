@@ -29,7 +29,7 @@ public class LetterTest {
         letterPlacer.placeNext('N');
         letterPlacer.placeNext('C');
         letterPlacer.placeNext('E');
-        letterPlacer.saveImage("all", true);
+        letterPlacer.saveImage("all", false);
 
         File tmpFile = new File("all.jpg");
         String output = tesseract.doOCR(tmpFile)

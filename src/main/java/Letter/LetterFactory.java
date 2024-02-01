@@ -17,7 +17,8 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
-        return null;
+
+        return create_O();
     }
 
     /** TODO
@@ -25,7 +26,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter B
      */
     public static BaseShape create_B() {
-        return null;
+        return  create_O();
     }
 
     /** TODO
@@ -33,7 +34,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        return null;
+        return create_O();
     }
 
     /** TODO
@@ -41,7 +42,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        return null;
+        return create_O();
     }
 
     /** TODO
@@ -49,7 +50,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        return null;
+        return create_O();
     }
 
     /** TODO
@@ -57,7 +58,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        return null;
+        return create_O();
     }
 
     /** TODO
@@ -65,7 +66,10 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        return null;
+        Ellipse forme = new Ellipse(maxWidth,maxHeight);
+        Ellipse aEffacer = new Ellipse(maxWidth-stripeThickness,maxHeight-stripeThickness);
+        forme.remove(aEffacer);
+        return forme;
     }
 
 }
