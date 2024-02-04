@@ -224,4 +224,17 @@ public class BaseShape extends Transform implements Cloneable {
     public BaseShape clone() {
         return new BaseShape(cloneCoords());
     }
+
+    public BaseShape rotate(Double angle){
+
+        rotate(coords,angle);
+
+        return this;
+    }
+
+
+    public BaseShape translate(Point2d translatePoint){
+        translate(coords,translatePoint);
+        return this;
+    }
 }

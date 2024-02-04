@@ -66,7 +66,13 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        return create_O();
+        Double centerRight = halfMaxWidth-halfStripeThickness;
+
+        BaseShape lettreC = create_O();
+        Rectangle aEffacer = new Rectangle(stripeThickness,halfMaxHeight);
+        aEffacer.translate(new Point2d(centerRight,0.0));
+        lettreC.remove(aEffacer);
+        return lettreC;
     }
 
     /** TODO
@@ -74,7 +80,24 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        return create_O();
+        Double centerLeft = -halfMaxWidth+halfStripeThickness;
+        Double centerTop = halfMaxHeight-halfStripeThickness;
+        Double centerBottom = -centerTop;
+
+        BaseShape lettreE = new BaseShape();
+        Rectangle leftBar = new Rectangle(stripeThickness,maxHeight);
+        leftBar.translate(new Point2d(centerLeft,0.0));
+        Rectangle centerBar = new Rectangle(maxWidth,stripeThickness);
+        Rectangle topBar = centerBar.clone();
+        topBar.translate(new Point2d(0.0,centerTop));
+        Rectangle bottomBar = centerBar.clone();
+        bottomBar.translate(new Point2d(0.0,centerBottom));
+        lettreE.add(leftBar);
+        lettreE.add(centerBar);
+        lettreE.add(topBar);
+        lettreE.add(bottomBar);
+
+        return lettreE;
     }
 
     /** TODO
@@ -103,7 +126,20 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        return create_O();
+        Double angle = -Math.PI/8;
+        BaseShape lettreN = new BaseShape();
+        Rectangle leftBar = new Rectangle(stripeThickness,maxHeight);
+        Rectangle rightBar = leftBar.clone();
+        Rectangle centerBar = leftBar.clone();
+        leftBar.translate(new Point2d(-halfMaxWidth,0.0));
+        rightBar.translate(new Point2d(halfMaxWidth,0.0));
+        centerBar.rotate(angle);
+        lettreN.add(leftBar);
+        lettreN.add(centerBar);
+        lettreN.add(rightBar);
+
+
+        return lettreN;
     }
 
     /** TODO
