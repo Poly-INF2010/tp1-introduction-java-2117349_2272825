@@ -41,14 +41,16 @@ public final class LetterFactory {
     public static BaseShape create_B() {
         BaseShape letterB = new BaseShape();
         Rectangle leftBar = new Rectangle(stripeThickness, maxHeight);
-        Double centerLeft = -halfMaxWidth+halfStripeThickness;
-        leftBar.translate(new Point2d(centerLeft, 0.0));
-        Ellipse ell1 = new Ellipse(halfMaxHeight, (maxWidth - stripeThickness));
-        Ellipse ell1AEffacer = new Ellipse((halfMaxHeight - halfStripeThickness), (maxWidth - stripeThickness - halfStripeThickness));
-        ell1.remove(ell1AEffacer);
-        ell1.rotate(Math.PI/2.0);
+        leftBar.translate(new Point2d(-halfMaxWidth,0.0));
+
+        Ellipse ell1 = new Ellipse((maxWidth), halfMaxHeight);
+        Ellipse effaceEll1 = new Ellipse(maxWidth-stripeThickness,halfMaxHeight-stripeThickness);
+        ell1.remove(effaceEll1);
         Ellipse ell2 = ell1.clone();
-        ell2.translate(new Point2d(0.0, -halfMaxHeight+halfStripeThickness));
+        ell1.translate(new Point2d(0.0,halfMaxHeight/2));
+        ell2.translate(new Point2d(0.0,-halfMaxHeight/2));
+
+
         letterB.add(leftBar);
         letterB.add(ell1);
         letterB.add(ell2);
