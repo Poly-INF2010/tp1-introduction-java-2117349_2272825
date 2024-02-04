@@ -104,10 +104,10 @@ public final class LetterFactory {
 
         BaseShape letterH = new BaseShape();
         Rectangle leftBar = new Rectangle(stripeThickness,maxHeight);
-        leftBar.translate(new Point2d(centerLeft,0.0));
-        Rectangle centerBar = new Rectangle(maxWidth,stripeThickness);
         Rectangle rightBar = leftBar.clone();
         rightBar.translate(new Point2d(centerRight,0.0));
+        leftBar.translate(new Point2d(centerLeft,0.0));
+        Rectangle centerBar = new Rectangle(maxWidth,stripeThickness);
         letterH.add(leftBar);
         letterH.add(centerBar);
         letterH.add(rightBar);
