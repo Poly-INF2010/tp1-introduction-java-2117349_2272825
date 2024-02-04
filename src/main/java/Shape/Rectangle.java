@@ -11,6 +11,12 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
+        super();
+        for (Double coordY = -(height/2.0); coordY < (height/2.0); coordY += 0.5){
+            for(Double coordX = -(width/2.0); coordX < (width/2.0); coordX += 0.5 ){
+                add(new Point2d(coordX,coordY));
+            }
+        }
 
     }
 
@@ -20,7 +26,6 @@ public class Rectangle extends BaseShape {
      */
     public Rectangle(Point2d dimensions) {
         this(dimensions.X(), dimensions.Y());
-
     }
 
     /**

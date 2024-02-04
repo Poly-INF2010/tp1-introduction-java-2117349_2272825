@@ -17,8 +17,18 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
+        BaseShape letterA = new BaseShape();
+        Rectangle left = new Rectangle(stripeThickness, maxHeight);
+        letterA.add(left);
+        Rectangle top = new Rectangle(halfMaxHeight, stripeThickness);
+        letterA.add(top);
+        Rectangle center = new Rectangle(halfMaxHeight, stripeThickness);
+        letterA.add(center);
+        Rectangle right = new Rectangle(stripeThickness, maxHeight);
+        letterA.add(right);
 
-        return create_O();
+
+        return letterA;
     }
 
     /** TODO
@@ -26,7 +36,14 @@ public final class LetterFactory {
      * @return BaseShape containing the letter B
      */
     public static BaseShape create_B() {
-        return  create_O();
+        BaseShape letterB = new BaseShape();
+        Rectangle left = new Rectangle(stripeThickness, maxHeight);
+        letterB.add(left);
+        Ellipse ell1 = new Ellipse(halfMaxHeight, (maxWidth - stripeThickness));
+        letterB.add(ell1);
+        Ellipse ell2 = new Ellipse(halfMaxHeight, (maxWidth - stripeThickness));
+        letterB.add(ell2);
+        return letterB;
     }
 
     /** TODO
