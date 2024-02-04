@@ -18,13 +18,14 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
-        Double angle = Math.PI/8;
+        Double angle = Math.PI/11;
         BaseShape letterA = new BaseShape();
         Rectangle leftBar = new Rectangle(stripeThickness,maxHeight);
         Rectangle rightBar = leftBar.clone();
         Rectangle centerBar = new Rectangle(halfMaxWidth, halfStripeThickness);
-        leftBar.translate(new Point2d(-halfMaxWidth,0.0));
-        rightBar.translate(new Point2d(halfMaxWidth,0.0));
+        centerBar.translate(new Point2d(0.0,stripeThickness));
+        leftBar.translate(new Point2d(-halfMaxWidth + halfStripeThickness,0.0));
+        rightBar.translate(new Point2d(halfMaxWidth - halfStripeThickness ,0.0));
         leftBar.rotate(angle);
         rightBar.rotate(-angle);
         letterA.add(leftBar);
